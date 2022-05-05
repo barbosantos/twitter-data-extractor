@@ -13,3 +13,5 @@ The code is executed in a container running in Kubernetes (pod). The code is sch
 
 For a simple CI/CD, I have used Cloud build to build and deploy the container. The building process is triggered when the master branch is modified. Below is a diagram summing up the process:
 
+
+![alt text](https://github.com/barbosantos/twitter-data-extractor/blob/main/diagram.png?raw=true)
