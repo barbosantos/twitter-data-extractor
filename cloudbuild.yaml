@@ -1,0 +1,15 @@
+steps:
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: [ 'build', '-t', 'europe-north1-docker.pkg.dev/ikea-data/twitter-data/data-extractor:latest', '.' ]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "europe-north1-docker.pkg.dev/ikea-data/twitter-data/data-extractor:latest"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=cronjob.yaml
+  - --image=europe-north1-docker.pkg.dev/ikea-data/twitter-data/data-extractor:latest
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster=${_GKE_CLUSTER}

@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: twitter-data-extractor
+  namespace: data
+spec:
+  schedule: "10 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+          - name: artifact-registry
+          containers:
+          - name: twitter-data-extractor
+            image: gcr.io/ikea-data/data-extractor:latest
+            command: ["./batch_extraction.py"]
+            imagePullPolicy: Always
+          restartPolicy: Never

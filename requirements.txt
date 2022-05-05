@@ -1,0 +1,10 @@
+tweepy
+google-cloud-secret-manager
+pandas
+google-auth
+google-auth-httplib2
+google-cloud-bigquery
+google-cloud-storage
+retry
+pyarrow
+python-dotenv
