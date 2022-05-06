@@ -96,6 +96,7 @@ if __name__ == "__main__":
             next_token = None
 
     # upload file to cloud storage and then to bigquery
+    # add dummy comment
     upload_file_to_cloud_storage(bucket_name, twitter_csv_file_path, filename)
     upload_from_cloud_storage_to_bq(bucket_name, filename, SCHEMA_TWITTER_DATA)
     # remove file after being uploaded to cloud
