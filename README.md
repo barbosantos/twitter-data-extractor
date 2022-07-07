@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The goal of this project is to extract data from the Twitter API that talks about IKEA.
+The goal of this project is to extract data from the Twitter API that talks about companies of interest.
 To start of, it's necessary to create a Twitter developer account to get credentials to access the API. In this project, the "Essential" level access is being used, and the version of the API is v2. The data extracted from the tweets will consist of the tweet id, text and created_at fields.
 
 ## Methodology
