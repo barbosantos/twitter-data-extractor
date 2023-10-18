@@ -7,7 +7,8 @@ To start of, it's necessary to create a Twitter developer account to get credent
 
 ## Methodology
 
-The programming language used in this project is Python and the cloud platform is Google Cloud (GCP). To extract the data from Twitter API, the Tweepy library has being used. The API credentials are stored and fetched from GCP Secrets Manager service. So far, batch data extraction is being implemented, more especifically, we extract all tweets mentioning IKEA, from each previous day, using the "search recent" endpoint.
+The programming language used in this project is Python and the cloud platform is Google Cloud (GCP). To extract the data from Twitter API, the Tweepy library has being used. The API credentials are stored and fetched from GCP Secrets Manager service. So far, batch data extraction is being implemented, more especifically, we extract all tweets that mention a specific name, from each previous day, using the "search recent" endpoint. This could be used to know, for example, what people have been talking about a specific subject on twitter, such as a company, news, and so on.
+
 The data extracted is saved as a CSV file, and uploaded to a google cloud storage bucket. From there, the data is sent to Bigquery for enabling a better analysis.
 The code is executed in a container running in Kubernetes (pod). The code is scheduled to run every day, as a cronjob, so that we can keep fetching data continuously. 
 
